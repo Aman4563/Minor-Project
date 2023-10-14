@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 from decouple import config
 from dotenv import load_dotenv
+from flask import flash
 
 app = Flask(__name__)
 
@@ -112,17 +113,26 @@ def indexx():
 def login():
     form = LoginForm()
 
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            if check_password_hash(user.password, form.password.data):
-                login_user(user, remember=form.remember.data)
-                return redirect(url_for('dashboard'))
+    try:
+        if form.validate_on_submit():
+            user = User.query.filter_by(username=form.username.data).first()
+            if user:
+                if check_password_hash(user.password, form.password.data):
+                    login_user(user, remember=form.remember.data)
+                    return redirect(url_for('dashboard'))
+                else:
+                    flash('Invalid password. Please try again.', 'error')
+            else:
+                flash('Invalid username. Please try again.', 'error')
 
-        return '<h1>Invalid username or password</h1>'
-        # return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
+            return redirect(url_for('login'))
 
-    return render_template('login.html', form=form)
+        return render_template('login.html', form=form)
+
+    except Exception as e:
+        flash('An error occurred during login. Please try again later.', 'error')
+        return redirect(url_for('login'))
+
 
 
 @app.route('/signup', methods=['GET', 'POST'])
