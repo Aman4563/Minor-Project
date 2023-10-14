@@ -32,9 +32,11 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
             'ssl_ca': config('DB_SSL_CA'),
             'ssl_cert': config('DB_SSL_CERT'),
             'ssl_key': config('DB_SSL_KEY')
-        }
+        },
+        'pool_size': 10  # Set the appropriate pool size
     }
 }
+
 
 # Remove 'pool_size' from the options if present
 if 'pool_size' in app.config['SQLALCHEMY_ENGINE_OPTIONS']['connect_args']:
