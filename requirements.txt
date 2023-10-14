@@ -13,4 +13,5 @@ python-decouple==3.5
 pymysql==1.0.2
 WTForms==2.3.3
 markupsafe==2.0.1
+python-dotenv==0.17.1
 gunicorn
