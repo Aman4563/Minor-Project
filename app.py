@@ -1,43 +1,46 @@
 # from crypt import methods
 # pip  install --user scikit-learn==0.24.2 (imp)
-import pickle
-import sqlite3
-import numpy as np
-import pandas as pd
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
+from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import create_engine
-# from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
-from flask import jsonify
+import pickle
+import sqlite3
+import numpy as np
+import pandas as pd
+from decouple import config
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mqzf09wqj6z7it6ihuol:pscale_pw_iupFoQzISsOImVFbZBVPcerM5Y8rRLG513WlhZOAWFD@aws.connect.psdb.cloud/database_ver_1?charset=utf8mb4'
+load_dotenv()
 
+app.config['SECRET_KEY'] = config('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = config('DB_URI')
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     'poolclass': NullPool,
     'connect_args': {
         'ssl': {
-            # "ca": "/etc/ssl/cert.pem",
-            'ssl_ca': '/etc/ssl/cert.pem',
-            'ssl_cert': 'path/to/client-cert.pem',
-            'ssl_key': 'path/to/client-key.pem'
+            'ssl_ca': config('DB_SSL_CA'),
+            'ssl_cert': config('DB_SSL_CERT'),
+            'ssl_key': config('DB_SSL_KEY')
         }
     }
 }
 
-
-engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], **app.config['SQLALCHEMY_ENGINE_OPTIONS'])
+engine = create_engine(
+    app.config['SQLALCHEMY_DATABASE_URI'],
+    connect_args=app.config['SQLALCHEMY_ENGINE_OPTIONS']['connect_args'],
+    poolclass=app.config['SQLALCHEMY_ENGINE_OPTIONS']['poolclass']
+)
 
 bootstrap = Bootstrap(app)
 
