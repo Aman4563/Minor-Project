@@ -37,14 +37,15 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 }
 
 # Remove 'pool_size' from the options if present
-if 'pool_size' in app.config['SQLALCHEMY_ENGINE_OPTIONS']:
-    del app.config['SQLALCHEMY_ENGINE_OPTIONS']['pool_size']
+if 'pool_size' in app.config['SQLALCHEMY_ENGINE_OPTIONS']['connect_args']:
+    del app.config['SQLALCHEMY_ENGINE_OPTIONS']['connect_args']['pool_size']
 
 engine = create_engine(
     app.config['SQLALCHEMY_DATABASE_URI'],
     connect_args=app.config['SQLALCHEMY_ENGINE_OPTIONS']['connect_args'],
     poolclass=app.config['SQLALCHEMY_ENGINE_OPTIONS']['poolclass']
 )
+
 
 bootstrap = Bootstrap(app)
 
