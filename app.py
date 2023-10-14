@@ -21,7 +21,8 @@ from dotenv import load_dotenv
 from flask import flash
 
 app = Flask(__name__)
-
+app.config['TEMPLATE_FOLDER'] = 'templates'
+app.config['STATIC_FOLDER'] = 'static'
 load_dotenv()
 
 app.config['SECRET_KEY'] = config('SECRET_KEY')
