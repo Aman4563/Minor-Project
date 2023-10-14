@@ -1,0 +1,83 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">House Price Prediction</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Settings</a></li>
+          <li><a href="{{ url_for('indexr') }}" target="_blank">Predict</a></li>
+          <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="{{ url_for('analysis') }}" target="_blank">Analytics</a></li>
+          <li><a href="{{ url_for('feature') }}">Training Dataset And Feature Extraction</a></li>
+          <li><a href="{{ url_for('reports') }}">Reports</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Welcome, {{ name }}</h1>
+        <h2 class="sub-header">Data Used In House Price Prediction</h2>
+        <div class="table-responsive">
+          <table class="table table-striped" id="id01">
+            <thead>
+              <tr>
+                <th>area_type</th>
+                <th>availability</th>
+                <th>location</th>
+                <th>bhk</th>
+                <th>bath</th>
+                <th>total_sqft</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for u in usr %}
+              <tr>
+                <td>{{ u.area_type }}</td>
+                <td>{{ u.availability }}</td>
+                <td>{{ u.location }}</td>
+                <td>{{ u.bhk }}</td>
+                <td>{{ u.bath }}</td>
+                <td>{{ u.Total_sqft }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <button id="read-more-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('.static', filename='dashboard.js') }}"></script>
+{% endblock %}

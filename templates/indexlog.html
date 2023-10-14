@@ -1,0 +1,112 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Demo App
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+        aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">House Price Prediction</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container" style="background-color: aliceblue;">
+
+  <div class="starter-template">
+    <h1>House Price Prediction <br></h1>
+    <!-- <p>
+    <h3 style="text-align: left; font-weight: bold;">Keywords:</h3>
+    <ul style="text-align: left; display: flex; flex-direction: column;">
+      <li>House price prediction</li>
+      <li>real estate price</li>
+      <li>data mining</li>
+      <li>market trends</li>
+      <li>Prediction of house according to user choice</li>
+      <li>machine learning</li>
+      <li>Linear regression</li>
+      <li>Python</li>
+      <li>Flask</li>
+      <li>HTML CSS Javascript</li>
+      <li>SQLite</li>
+    </ul>
+    </p>
+    <h3 style="text-align: left; font-weight: bold;">ABSTRACT/Problem Statement:-</h3>
+    <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+      People looking to buy a new home tend to be more conservative with their budgets and market strategies.
+      The existing system involves calculation of house prices without the necessary prediction about future market
+      trends
+      and price increase. Aim of this project was to develop a House Price Predicting web application using Python and
+      SQLite.The House Price Prediction system Give the functionality for buyers, allowing them to search for houses by
+      features
+      or
+      address. It provides functionality for the seller, authorize them to log into the system and add new
+      advertisements or
+      delete existing ones. For this each user is provided a login account with login ID and password. Along with this,
+      when
+      the user will search for the property, original property value and predicted property value will be displayed. By
+      analysing previous market trends and price ranges, and also upcoming developments future prices will be predicted.
+      For the price prediction we will be using classification algorithm .The functioning of this project involves a
+      website
+      which accepts customer’s specifications and then uses the application of data mining. This application will help
+      customers to invest in an estate without approaching an agent. It also decreases the risk involved in the
+      transaction. The
+      property, original property value and predicted property value will be displayed. By analysing previous market
+      trends
+      and price ranges, and also upcoming developments future prices will be predicted. For the price prediction we will
+      be
+      using classification algorithm. The functioning of this project involves a website which accepts customer’s
+      specifications and then uses the application of data mining. This application will help customers to invest in an
+      estate
+      without approaching an agent. It also decreases the risk involved in the transaction.
+      <br>
+      The relationship between house prices and the
+      economy is an important motivating factor for
+      predicting house prices. A property’s value is important
+      in real estate transactions. Housing price trends are not
+      only the concern of buyers and sellers, but it also
+      indicates the current economic situation. Therefore, it is
+      important to predict housing prices without bias to help
+      both the buyers and sellers make their decisions. In this
+      project, we are going to create a website where user
+      have to add some property details for predicting the
+      house price, enter date for forecasting the price till that
+      date and budget range for recommending best location.
+      This project uses two datasets, one includes some
+      features and large entries of housing sales in Bengaluru
+      and another contains house price index of Bengaluru. We
+      are using different feature selection methods and feature
+      extraction method with Multiple Linear Regression to
+      predict the current house price and using ARIMA model
+      for forecasting the price after few years in Bengaluru and
+      also uses content based recommendation system to
+      recommend best location according to their budget in
+      nearby area of interest.
+    </p><br> -->
+
+  </div>
+
+</div><!-- /.container -->
+{% endblock %}

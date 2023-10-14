@@ -1,0 +1,225 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Demo App
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="background-color: aliceblue;">
+
+    <div class="starter-template">
+        <h1>House Price Prediction <br></h1>
+        <ol>
+
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">Introduction:-</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    Investment is a business activity on which most people
+                    are interested in this globalization era. There are
+                    several objects that are often used for investment, for
+                    example, gold, stocks and property. In particular,
+                    property investment has increased significantly.
+                    Housing price trends are not only the concern of
+                    buyers and sellers, but it also indicates the current
+                    economic situation. There are many factors which has
+                    impact on house prices, such as location, BHK, floor etc.
+                    Also, a location with a great accessibility to highways,
+                    expressways, schools, shopping malls and local
+                    employment opportunities contributes to the rise in
+                    house price. Manual house prediction becomes
+                    difficult, hence there are many systems developed for
+                    house price prediction. The aim of this system is tocreate a website through which the user can give
+                    his
+                    house requirements as input which is then passed on
+                    to the linear regression model for predicting the house
+                    price. The website also allows user to forecast the
+                    predicted house price to a particular date which is also
+                    specified by the user. This is done by using another
+                    model known as the ARIMA(Auto Regressive
+                    Integrated Moving Average Model). <br>
+                    During the last few decades, with the rise of Youtube,
+                    Amazon, Netflix and many other such web services,
+                    recommender systems have taken more and more
+                    place in our lives. From e-commerce (suggest to buyers
+                    articles that could interest them) to online
+                    advertisement (suggest to users the right contents,
+                    matching their preferences), recommender systems are
+                    today unavoidable in our daily online journeys. <br>
+                    In a very general way, recommender systems are
+                    algorithms aimed at suggesting relevant items to users
+                    (items being movies to watch, text to read, products to
+                    buy or anything else depending on industries). This
+                    website also provides an option for recommendations.
+                    The type of recommendation system is content based
+                    recommendation. In this project, we are using two
+                    datasets which are extracted from Makaan.com by
+                    using the concept of web scraping. One dataset consists
+                    of some features such as location, BHK, floor, furnished
+                    etc. with different cities in Mumbai. This dataset is used
+                    for prediction. The other dataset consists of the House
+                    Price index of Mumbai for the last 10 years. This
+                    dataset is used for forecasting.
+                </p><br>
+            </li>
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">AIM AND OBJECTIVE:</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    The aim is to predict the efficient house pricing for Price Prediction customers with respect to
+                    their budgets and priorities. By
+                    analyzing previous market trends and price ranges, and also upcoming developments future prices will
+                    be predicted.
+                    The functioning involves a website which accepts customers specifications and then combines the
+                    application of Naive
+                    bayes algorithm of data mining. This application will help customers to invest in an estate without
+                    approaching an
+                    agent. It also decreases the risk involved in the transaction.
+                    <br>
+                    The current property buying or selling is hectic and expensive. As the customer has to roam places
+                    and has to pay
+                    commission to the Price Prediction agent. Also, the customer/buyer does not know whether the
+                    property is profitable in
+                    future or not. Hence, we design a website using data mining techniques to overcome the drawbacks of
+                    current system
+                    as everything is web based. We are implementing following :
+
+                <ul
+                    style="text-align: left; font-size: medium ; font-weight: 300 ; font-size: large; list-style: lower-roman;">
+                    <li>Login page</li>
+                    <li> Feature based search</li>
+                    <li>Price estimate of property</li>
+                </ul>
+                </p><br>
+            </li>
+
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">PROBLEM STATEMENT AND SCOPE:</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    The general and standardized real estate characteristics are often listed separately from the asking
+                    price and general
+                    description. Because these characteristics are separately listed in a structured way, they can be
+                    easily compared across
+                    the whole range of potential houses. Because every house also has its own unique characteristics,
+                    such as a particular
+                    view or type of sink, house sellers can provide a summary of all the important features of the house
+                    in the description.
+                    All given real estate features can be considered by the potential buyers, but it is nearly
+                    impossible to provide an
+                    automated comparison on all variables due to the large diversity. This is also true in the other
+                    direction: house sellers
+                    have to make an estimation of the value based on its features in comparison to the current market
+                    price of similar
+                    houses. The diversity of features makes it challenging to estimate an adequate market price. Apart
+                    from providing a
+                    summary of the important features of the house, the house description is also a means of raising
+                    curiosity in the reader,
+                    or in other words to persuade the person. It is possible that there are certain word sequences in
+                    the natural language text
+                    that seduce potential buyers more than others. Therefore, there might be a relation between the
+                    language used in the
+                    description and the price of the property. This comparison does not focus primarily on the house
+                    characteristics, but on
+                    all words within the description. <br>
+                    For example, a description with the word highly can outperform one with the word very looking at
+                    price fluctuation:
+                    the difference between real estate asking- and selling price. This can mean that the word highly is
+                    commonly seen in
+                    descriptions that show an increase in real estate price while the word very generally leads to a
+                    decrease in price. In
+                    addition, we can also find words that are distinctive for a certain range in selling- or asking
+                    price, thus can be used for
+                    prediction tasks. Hence, we have determined three pricing indicators that will be meaningful to
+                    predict: selling price,
+                    asking price and price fluctuation
+                </p><br>
+            </li>
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">METHODOLOGY:</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    The proposed system face recognition-based attendance system can be divided into three main modules.
+                    The modules and their functions are defined as follows.
+                    <br>
+                <ul
+                    style="text-align: left; font-size: medium ; font-weight: 300 ; font-size: large; list-style: lower-alpha;">
+                    <li style="font-size: larger; font-weight: bold;">Data Collection:</li>
+                    <p>For doing machine learning projects we need a vast amount of data which we have taken
+                        through the Kaggle website. The data consists of several factors in a house of a given
+                        locality such as the number of bedrooms, carpet area, location, etc. The dataset that we
+                        will be using will be batch i.e., static data and not dynamic</p>
+                    <li style="font-size: larger; font-weight: bold;">Train the Dataset and Feature Extraction:</li>
+                    <p>The dataset will further be trained and processed using Linear Regression Algorithm
+                        which will predict the house price accurately. The algorithm used will be a regression
+                        since regression helps to get a value by analyzing a dataset, in this condition the value is
+                        the price of the house.</p>
+                    <li style="font-size: larger; font-weight: bold;">Displaying the output:</li>
+                    <p>The project uses a web application to work with the users and give them accurate price
+                        predictions. The user will input features accordingly which they want on the frontend and
+                        the data will be processed on the backend using Linear Regression and the predicted
+                        output will be shown to the respective user.</p>
+                </ul>
+                </p><br>
+            </li>
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">ANALYSIS:</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    FEASIBILITY STUDY:- The very first phase in any system developing life cycle is preliminary
+                    investigation. The
+                    feasibility study is a major part of this phase. A measure of how beneficial or practical the
+                    development of any
+                    information system would be to the organization is the feasibility study.
+                    <br>
+                    <br>
+                    The feasibility of the development software can be studied in terms of the following aspects:
+
+                <ul
+                    style="text-align: left; font-size: medium ; font-weight: 300 ; font-size: large; list-style:decimal;">
+                    <li style="font-size: larger; font-weight: bold;">Operational Feasibility:</li>
+                    <p>The Application will reduce the time consumed to maintain manual records and is
+                        not tiresome and cumbersome to maintain the records. Hence operational feasibility is assured
+                    </p>
+                    <li style="font-size: larger; font-weight: bold;">TECHNICAL FEASIBILITY:</li>
+                    <p>- Minimum hardware requirements: - 1.66 GHz Pentium Processor or Intel compatible
+                        processor. 1 GB RAM. Internet Connectivity. 80 MB hard disk space.</p>
+                    <li style="font-size: larger; font-weight: bold;">ECONOMICAL FEASIBILITY:</li>
+                    <p>Once the hardware and software requirements get fulfilled, there is no need for the
+                        user of our system to spend for any additional overhead. For the user, the Application will be
+                        economically feasible in
+                        the following aspects: The Application will reduce a lot of labour work. Hence the Efforts will
+                        be reduced. Our
+                        Application will reduce the time that is wasted in manual processes. The storage and handling
+                        problems of the registers
+                        will be solved.</p>
+                </ul>
+                </p><br>
+            </li>
+            <li style="list-style:decimal ; font-weight: bold; font-size: x-large;">
+                <h3 style="text-align: left; font-weight: bold;">SOFTWARE AND HARDWARE REQUIREMENT:</h3>
+                <p class="lead" style=" box-sizing: border-box ; ; text-align: justify;">
+                    <br>
+                <ul
+                    style="text-align: left; font-size: medium ; font-weight: 300 ; font-size: large; list-style:decimal;">
+                    <li style="font-size: larger; font-weight: bold;">HARDWARE REQUIREMENTS::</li>
+                    <p>
+                        1 GB RAM. <br>
+                        200 GB HDD. <br>
+                        Intel 1.66 GHz Processor Pentium 4 <br>
+                    </p>
+                    <li style="font-size: larger; font-weight: bold;">SOFTWARE REQUIREMENTS:</li>
+                    <p>
+                        Windows XP, Windows 7, 8,10 <br>
+                        VS Studio Code <br>
+                        PYcharm <br>
+                        SQLite <br>
+                        Jupyter Notebook <br>
+                    </p>
+                </ul>
+                </p><br>
+            </li>
+        </ol>
+
+    </div><!-- /.container -->
+    {% endblock %}
