@@ -1,0 +1,12 @@
+scikit-learn==0.24.2
+pickle
+sqlite3
+numpy
+pandas
+Flask
+Flask-Bootstrap
+Flask-Login
+Flask-SQLAlchemy
+Flask-WTF
+Werkzeug
+wtforms

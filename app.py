@@ -22,13 +22,14 @@ from flask import jsonify
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mqp3lc1kh80w8wggb75d:pscale_pw_KnfaLwIurrxvdzuoKSmaYsAP5m1J3IQInYv9gDVWYjB@aws.connect.psdb.cloud/database_ver_1?charset=utf8mb4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mqzf09wqj6z7it6ihuol:pscale_pw_iupFoQzISsOImVFbZBVPcerM5Y8rRLG513WlhZOAWFD@aws.connect.psdb.cloud/database_ver_1?charset=utf8mb4'
 
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     'poolclass': NullPool,
     'connect_args': {
         'ssl': {
-            'ssl_ca': 'path/to/ca.pem',
+            # "ca": "/etc/ssl/cert.pem",
+            'ssl_ca': '/etc/ssl/cert.pem',
             'ssl_cert': 'path/to/client-cert.pem',
             'ssl_key': 'path/to/client-key.pem'
         }
