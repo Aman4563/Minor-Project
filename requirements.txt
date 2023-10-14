@@ -10,3 +10,4 @@ Flask-SQLAlchemy
 Flask-WTF
 Werkzeug
 wtforms
+gunicorn
